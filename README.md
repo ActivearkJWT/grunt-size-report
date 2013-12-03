@@ -51,6 +51,22 @@ grunt.initConfig({
 })
 ```
 
+This generates a size report similar to:
+```
+~~~~~~~~~~~
+Size report
+~~~~~~~~~~~
+
+Filename                      Size          %
+---------------------------------------------
+test/testfiles/test4.txt     9.6 KiB    46.8%
+test/testfiles/test1.txt     7.0 KiB    34.0%
+test/testfiles/test2.txt     3.5 KiB    17.0%
+test/testfiles/test3.txt     447 B       2.1%
+=============================================
+Total:                      20.5 KiB
+```
+
 #### Multiple reports
 
 Generate multiple reports by adding different targets to your Grunt config:
@@ -85,4 +101,5 @@ grunt.initConfig({
 
 ## Release History
 
+0.1.1 Added sample report to README
 0.1.0 Initial release
