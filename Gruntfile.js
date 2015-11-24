@@ -27,14 +27,7 @@ module.exports = function(grunt) {
     size_report: {
         default: {
             options: {
-            },
-            files: {
-                list: ['test/testfiles/*.txt']
-            },
-        },
-        customHeader: {
-            options: {
-                header: 'Custom Size Report'
+                header: 'Size report of .txt files'
             },
             files: {
                 list: ['test/testfiles/*.txt']

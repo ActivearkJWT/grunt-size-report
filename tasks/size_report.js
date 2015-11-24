@@ -70,6 +70,16 @@ module.exports = function(grunt) {
             'header': 'Size report'
         });
         
+        if (typeof options.header !== 'string') {
+            grunt.log.error('Header should be a string');
+            return false;
+        }
+        if (options.header.indexOf('\n') > -1) {
+            grunt.log.error('Only single-line headers are supported');
+            grunt.log.error('Remove any line breaks in `options.header` variable');
+            return false;
+        }
+        
         // Iterate over all specified file groups.
         this.files.forEach(function(f) {
             
