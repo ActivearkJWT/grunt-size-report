@@ -44,8 +44,10 @@ Generate a size report by adding the compiled project files to the 'list' variab
 ```js
 grunt.initConfig({
     size_report: {
-        files: {
-            list: ['path/to/*.html', 'path/to/images/*.jpg']
+        default: {
+            files: {
+                list: ['path/to/*.html', 'path/to/images/*.jpg']
+            },
         },
     },
 })
@@ -67,6 +69,27 @@ test/testfiles/test3.txt     447 B       2.1%
 Total:                      20.5 KiB
 ```
 
+#### Changing the header
+
+You can change the header of the report by passing a `header` parameter to the
+options:
+
+```js
+grunt.initConfig({
+    size_report: {
+        default: {
+            options: {
+                header: 'Size report of .txt files'
+            },
+            files: {
+                list: ['path/to/*.txt']
+            },
+        },
+    },
+})
+```
+
+
 #### Multiple reports
 
 Generate multiple reports by adding different targets to your Grunt config:
@@ -75,21 +98,33 @@ Generate multiple reports by adding different targets to your Grunt config:
 grunt.initConfig({
     size_report: {
         images: {
+            options: {
+                header: 'Images size report'
+            },
             files: {
                 list: ['path/to/images/*.jpg']
             },
         },
         css: {
+            options: {
+                header: 'CSS size report'
+            },
             files: {
                 list: ['path/to/css/*.css']
             },
         },
         fonts: {
+            options: {
+                header: 'Font size report'
+            },
             files: {
                 list: ['path/to/fonts/*.woff', 'path/to/fonts/*.ttf']
             },
         },
         js: {
+            options: {
+                header: 'JavaScript size report'
+            },
             files: {
                 list: ['path/to/js/*.js']
             },
