@@ -32,6 +32,14 @@ module.exports = function(grunt) {
                 list: ['test/testfiles/*.txt']
             },
         },
+        customHeader: {
+            options: {
+                header: 'Custom Size Report'
+            },
+            files: {
+                list: ['test/testfiles/*.txt']
+            },
+        },
     },
 
     // Unit tests.

@@ -67,6 +67,7 @@ module.exports = function(grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             // TODO: human-readable on/off
+            'header': 'Size report'
         });
         
         // Iterate over all specified file groups.
@@ -102,9 +103,9 @@ module.exports = function(grunt) {
             
             // Header
             grunt.log.writeln();
-            grunt.log.write(padLeft("", 11, "~"));
-            grunt.log.subhead("Size report");
-            grunt.log.writeln(padLeft("", 11, "~"));
+            grunt.log.write(padLeft("", options.header.length, "~"));
+            grunt.log.subhead(options.header);
+            grunt.log.writeln(padLeft("", options.header.length, "~"));
             
             // Size table
             grunt.log.subhead(padLeft("Filename", longestPathLength + 6) + "Size" + padRight("%", 11));
