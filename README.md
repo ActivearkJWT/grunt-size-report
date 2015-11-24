@@ -53,9 +53,9 @@ grunt.initConfig({
 
 This generates a size report similar to:
 ```
-~~~~~~~~~~~
+̴̴̴̴̴̴̴̴̴̴̴
 Size report
-~~~~~~~~~~~
+̴̴̴̴̴̴̴̴̴̴̴
 
 Filename                      Size          %
 ---------------------------------------------
@@ -101,5 +101,5 @@ grunt.initConfig({
 
 ## Release History
 
-0.1.1 Added sample report to README
-0.1.0 Initial release
+* 0.1.1 Added sample report to README
+* 0.1.0 Initial release
