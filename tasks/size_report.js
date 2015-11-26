@@ -67,7 +67,18 @@ module.exports = function(grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             // TODO: human-readable on/off
+            'header': 'Size report'
         });
+        
+        if (typeof options.header !== 'string') {
+            grunt.log.error('Header should be a string');
+            return false;
+        }
+        if (options.header.indexOf('\n') > -1) {
+            grunt.log.error('Only single-line headers are supported');
+            grunt.log.error('Remove any line breaks in `options.header` variable');
+            return false;
+        }
         
         // Iterate over all specified file groups.
         this.files.forEach(function(f) {
@@ -102,9 +113,9 @@ module.exports = function(grunt) {
             
             // Header
             grunt.log.writeln();
-            grunt.log.write(padLeft("", 11, "~"));
-            grunt.log.subhead("Size report");
-            grunt.log.writeln(padLeft("", 11, "~"));
+            grunt.log.write(padLeft("", options.header.length, "~"));
+            grunt.log.subhead(options.header);
+            grunt.log.writeln(padLeft("", options.header.length, "~"));
             
             // Size table
             grunt.log.subhead(padLeft("Filename", longestPathLength + 6) + "Size" + padRight("%", 11));
