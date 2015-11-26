@@ -59,6 +59,11 @@ module.exports = function(grunt) {
         }
         return (width <= string.length) ? string : padLeft(string + padding, width, padding);
     }
+    function averageFileSize(files) {
+        return files.reduce(function(a,b) {
+            return a + b.size;
+        }, 0) / files.length;
+    }
     
     grunt.registerMultiTask('size_report', 'Create size report of your project', function() {
         
@@ -67,7 +72,8 @@ module.exports = function(grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             // TODO: human-readable on/off
-            'header': 'Size report'
+            'header': 'Size report',
+            'showStatistics': true
         });
         
         if (typeof options.header !== 'string') {
@@ -100,6 +106,7 @@ module.exports = function(grunt) {
             // Calculate statistics
             var total = 0;
             var longestPathLength = 0;
+            var numFiles = fileSizes.length.toString();
             fileSizes.forEach(function(f) {
                 total += f.size;
                 longestPathLength = Math.max(longestPathLength, f.relativePath.length);
@@ -109,6 +116,8 @@ module.exports = function(grunt) {
                 return b.size - a.size;
             });
             
+            var average = humanReadableFilesize(averageFileSize(fileSizes));
+            
             // Generate report
             
             // Header
@@ -116,6 +125,13 @@ module.exports = function(grunt) {
             grunt.log.write(padLeft("", options.header.length, "~"));
             grunt.log.subhead(options.header);
             grunt.log.writeln(padLeft("", options.header.length, "~"));
+            
+            if (options.showStatistics) {
+                // Overall statistics
+                grunt.log.writeln();
+                grunt.log.writeln("Total number of files: " + numFiles.bold);
+                grunt.log.writeln("Average file size: " + padRight(average, numFiles.length + 8).bold);
+            }
             
             // Size table
             grunt.log.subhead(padLeft("Filename", longestPathLength + 6) + "Size" + padRight("%", 11));
@@ -138,7 +154,8 @@ module.exports = function(grunt) {
         'FileSize': FileSize,
         'humanReadableFilesize': humanReadableFilesize,
         'padRight': padRight,
-        'padLeft': padLeft
+        'padLeft': padLeft,
+        'averageFileSize': averageFileSize
     };
     
 };
