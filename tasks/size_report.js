@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         var options = this.options({
             // TODO: human-readable on/off
             'header': 'Size report',
-            'showStatistics': true
+            'showStatistics': false
         });
         
         if (typeof options.header !== 'string') {
