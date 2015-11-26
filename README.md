@@ -136,5 +136,6 @@ grunt.initConfig({
 
 ## Release History
 
+* 0.1.2 Added `options.header`
 * 0.1.1 Added sample report to README
 * 0.1.0 Initial release
