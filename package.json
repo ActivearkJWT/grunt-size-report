@@ -1,7 +1,7 @@
 {
   "name": "grunt-size-report",
   "description": "Create size report of your project",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "homepage": "https://github.com/ActivearkJWT/grunt-size-report",
   "author": {
     "name": "Jesse Luoto / Activeark JWT",
