@@ -29,7 +29,7 @@ exports.size_report = {
     done();
   },
   default_options: function(test) {
-    test.expect(7);
+    test.expect(11);
     
     test.equal(sizeReport.padRight("test", 8, "-"), "----test", 'Padding right script');
     test.equal(sizeReport.padLeft("test", 8), "test    ", 'Padding left script');
@@ -42,6 +42,14 @@ exports.size_report = {
     
     test.equal(testObj.size, 7152, 'Correct file size');
     test.equal(testObj.hSize, '7.0 KiB', 'Correct human-readable file size');
+    
+    var filepaths = ['test/testfiles/test1.txt', 'test/testfiles/test2.txt', 'test/testfiles/test3.txt'];
+    var files = filepaths.map(function(filepath) {
+        test.equal(grunt.file.exists(filepath), true, 'Test file exists');
+        return new sizeReport.FileSize(filepath);
+    });
+    
+    test.equal(sizeReport.averageFileSize(files), 3725, 'Correct average file size');
     
     test.done();
   },

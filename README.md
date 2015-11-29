@@ -34,6 +34,20 @@ grunt.initConfig({
 })
 ```
 
+### Options
+
+#### header
+Type: `String`  
+Default: `Size report`
+
+Changes the header of the report.
+
+#### showStatistics
+Type: `Boolean`  
+Default: `false`
+
+Show hide additional statistics about the files: File count and average file
+size.
 
 ### Usage Examples
 
@@ -67,26 +81,6 @@ test/testfiles/test2.txt     3.5 KiB    17.0%
 test/testfiles/test3.txt     447 B       2.1%
 =============================================
 Total:                      20.5 KiB
-```
-
-#### Changing the header
-
-You can change the header of the report by passing a `header` parameter to the
-options:
-
-```js
-grunt.initConfig({
-    size_report: {
-        default: {
-            options: {
-                header: 'Size report of .txt files'
-            },
-            files: {
-                list: ['path/to/*.txt']
-            },
-        },
-    },
-})
 ```
 
 
