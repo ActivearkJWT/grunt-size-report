@@ -130,6 +130,7 @@ grunt.initConfig({
 
 ## Release History
 
+* 0.1.4 Update deprecated Grunt version
 * 0.1.3 Added statistics and `options.showStatistics`
 * 0.1.2 Added `options.header`
 * 0.1.1 Added sample report to README
