@@ -24,13 +24,13 @@ In your project's Gruntfile, add a section named `size_report` to the data objec
 
 ```js
 grunt.initConfig({
-    size_report: {
-        your_target: {
-            files: {
-                list: ['path/to/*.html', 'path/to/images/*.jpg']
-            },
-        },
-    },
+  size_report: {
+    your_target: {
+      files: {
+        list: ['path/to/*.html', 'path/to/images/*.jpg']
+      }
+    }
+  }
 })
 ```
 
@@ -57,13 +57,13 @@ Generate a size report by adding the compiled project files to the 'list' variab
 
 ```js
 grunt.initConfig({
-    size_report: {
-        default: {
-            files: {
-                list: ['path/to/*.html', 'path/to/images/*.jpg']
-            },
-        },
-    },
+  size_report: {
+    default: {
+      files: {
+        list: ['path/to/*.html', 'path/to/images/*.jpg']
+      }
+    }
+  }
 })
 ```
 
@@ -90,40 +90,40 @@ Generate multiple reports by adding different targets to your Grunt config:
 
 ```js
 grunt.initConfig({
-    size_report: {
-        images: {
-            options: {
-                header: 'Images size report'
-            },
-            files: {
-                list: ['path/to/images/*.jpg']
-            },
-        },
-        css: {
-            options: {
-                header: 'CSS size report'
-            },
-            files: {
-                list: ['path/to/css/*.css']
-            },
-        },
-        fonts: {
-            options: {
-                header: 'Font size report'
-            },
-            files: {
-                list: ['path/to/fonts/*.woff', 'path/to/fonts/*.ttf']
-            },
-        },
-        js: {
-            options: {
-                header: 'JavaScript size report'
-            },
-            files: {
-                list: ['path/to/js/*.js']
-            },
-        },
+  size_report: {
+    images: {
+      options: {
+        header: 'Images size report'
+      },
+      files: {
+        list: ['path/to/images/*.jpg']
+      }
     },
+    css: {
+      options: {
+        header: 'CSS size report'
+      },
+      files: {
+        list: ['path/to/css/*.css']
+      }
+    },
+    fonts: {
+      options: {
+        header: 'Font size report'
+      },
+      files: {
+        list: ['path/to/fonts/*.woff', 'path/to/fonts/*.ttf']
+      }
+    },
+    js: {
+      options: {
+        header: 'JavaScript size report'
+      },
+      files: {
+        list: ['path/to/js/*.js']
+      }
+    }
+  }
 })
 ```
 
